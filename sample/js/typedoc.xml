@@ -1,0 +1,6 @@
+<entityStoreData>
+	<entityType extends="QuickFilter" name="JavascriptTrueFilter">
+		<constant name="class" type="string" value="com.vordel.client.ext.filter.quick.QuickFilter" />
+		<constant name="_version" type="integer" value="1" />
+	</entityType>
+</entityStoreData>
