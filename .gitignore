@@ -4,3 +4,4 @@ sample/*/typeset.xml
 /.DS_Store
 /.classpath
 /.project
+/.pydevproject
