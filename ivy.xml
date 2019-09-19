@@ -1,0 +1,6 @@
+<ivy-module version="2.0">
+    <info organisation="axway" module="QuickFilter"/>
+    <dependencies>
+        <dependency org="de.odysseus.juel" name="juel-api" rev="2.2.4"/>
+    </dependencies>
+</ivy-module>

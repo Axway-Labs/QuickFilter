@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="QuickFilter" default="jar" basedir=".">
+    <property environment="env" />
+
+    <path id="classpath">
+        <fileset dir="${env.VORDEL_HOME}/system/lib">
+            <include name="circuit.jar" />
+            <include name="server.jar" />        
+            <include name="common.jar" />
+            <include name="precipitate.jar" />
+        </fileset>
+        <fileset dir="${env.VORDEL_HOME}/system/lib/plugins">
+            <include name="vordel-circuit-*.jar" />
+            <include name="vordel-common-*.jar" />
+            <include name="es-core-*.jar" />
+            <include name="vordel-config-*.jar" />
+            <include name="vordel-trace-*.jar" />
+            <include name="apigw-common-*.jar" />
+        </fileset>       
+        <fileset dir="${env.POLICYSTUDIO_HOME}/plugins">
+            <include name="org.eclipse.swt.*.jar" />
+            <include name="org.eclipse.jface_*.jar" />
+            <include name="org.eclipse.gef_*.jar" />
+        </fileset>
+    	<!-- XXX need to set a version proof path element -->
+    	<pathelement path="${env.POLICYSTUDIO_HOME}/plugins/com.vordel.rcp.filterbase_7.7.0.v20190412-0946"/>
+    </path>
+
+	<target name="resolve" description="--> retrieve dependencies with Ivy">
+	        <ivy:retrieve/>
+	</target>
+    <target name="clean">
+        <delete dir="build" />
+    </target>
+
+    <target name="compile" depends="resolve">
+        <mkdir dir="build/classes" />
+            <javac srcdir="src" destdir="build/classes" debug="true">
+                <classpath refid="classpath" />
+            </javac>
+    </target>
+
+    <target name="jar" depends="clean, compile">
+        <mkdir dir="build/jar" />
+        <jar destfile="build/jar/QuickFilter.jar" basedir="build/classes"/>            
+    </target>
+
+</project>
+
+

@@ -1,0 +1,13 @@
+<entityStoreData>
+	<entityType extends="QuickFilter" name="GroovyCertChainCheck">
+		<constant name="class" type="string" value="com.vordel.client.ext.filter.quick.QuickFilter" />
+		<constant name="_version" type="integer" value="1" />
+		
+		<field cardinality="1" default="${environment.VINSTDIR}/jks/sample.jks" name="location" type="string"/>
+		<field cardinality="1" name="password" type="encrypted"/>
+		
+		<field cardinality="1" default="http.request.clientcert.ca" name="caOutput" type="string"/>
+
+		<field cardinality="1" default="${http.request.clientcert}" name="certificateSelector" type="string"/>
+	</entityType>
+</entityStoreData>

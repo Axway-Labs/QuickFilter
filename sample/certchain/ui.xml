@@ -1,0 +1,15 @@
+<ui>
+	<panel columns="2">
+		<panel columns="2" fill="false">
+			<!-- filter name attribute -->
+			<NameAttribute />
+		</panel>
+
+		<panel columns="2" span="2" fill="false">
+			<TextAttribute field="location" label="CERTCHAIN_JKSLOCATION" required="true" />
+			<PasswordAttribute field="password" label="CERTCHAIN_JKSPASSWORD" required="true" />
+			<MsgAttrAttribute field="caOutput" label="CERTCHAIN_CAATTRIBUTE" required="true" />
+			<TextAttribute field="certificateSelector" label="CERTCHAIN_CLIENTCERT" required="true" />
+		</panel>
+	</panel>
+</ui>

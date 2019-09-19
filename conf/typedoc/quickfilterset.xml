@@ -1,0 +1,6 @@
+<typeSet>
+	<!-- Quick Filter Typedoc -->
+	<typedoc file="quickfilterdesc.xml" />
+	<!-- Quick Filter Instance -->
+	<typedoc file="quickfilterinstance.xml" />
+</typeSet>
