@@ -1,0 +1,8 @@
+<entityStoreData>
+	<entityType extends="QuickFilter" name="GroovyShortcut">
+		<constant name="class" type="string" value="com.vordel.client.ext.filter.quick.QuickFilter" />
+		<constant name="_version" type="integer" value="1" />
+		
+		<field cardinality="?" name="circuitPK" type="^FilterCircuit"/>
+	</entityType>
+</entityStoreData>
