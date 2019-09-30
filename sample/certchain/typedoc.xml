@@ -1,6 +1,5 @@
 <entityStoreData>
-	<entityType extends="QuickFilter" name="GroovyCertChainCheck">
-		<constant name="class" type="string" value="com.vordel.client.ext.filter.quick.QuickFilter" />
+	<entityType extends="Filter" name="GroovyCertChainCheck">
 		<constant name="_version" type="integer" value="1" />
 		
 		<field cardinality="1" default="${environment.VINSTDIR}/jks/sample.jks" name="location" type="string"/>

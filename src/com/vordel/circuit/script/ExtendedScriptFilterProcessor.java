@@ -1,4 +1,4 @@
-package com.vordel.client.ext.filter.quick;
+package com.vordel.circuit.script;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
@@ -14,7 +14,7 @@ import com.vordel.es.Entity;
 import com.vordel.es.EntityStoreException;
 import com.vordel.trace.Trace;
 
-public class QuickFilterProcessor extends MessageProcessor {
+public class ExtendedScriptFilterProcessor extends MessageProcessor {
 	/**
 	 * Attach script global function (optional)
 	 */
@@ -38,19 +38,17 @@ public class QuickFilterProcessor extends MessageProcessor {
 	 * @throws EntityStoreException
 	 */
 	@Override
-	public void filterAttached(ConfigContext ctx, com.vordel.es.Entity entity) throws EntityStoreException {
+	public void filterAttached(ConfigContext ctx, Entity entity) throws EntityStoreException {
 		super.filterAttached(ctx, entity);
 
-		ScriptEngineManager mgr = new ScriptEngineManager();
-
 		try {
-			Entity definition = QuickFilter.getQuickFilterDefinition(ctx.getStore(), entity.getType());
-			
-			/* retrieve and create a script engine */
-			engine = mgr.getEngineByName(definition.getStringValue("engineName"));
+			ScriptEngineManager mgr = new ScriptEngineManager();
 
+			/* retrieve and create a script engine */
+			engine = mgr.getEngineByName(getEngineName(entity));
+			
 			/* execute the script, this will create script functions */
-			engine.eval(definition.getStringValue("script"));
+			engine.eval(getEntityScript(entity));
 
 			try {
 				/* try to invoke the attach function */
@@ -70,6 +68,14 @@ public class QuickFilterProcessor extends MessageProcessor {
 				Trace.debug(ex);
 			}
 		}
+	}
+	
+	public String getEngineName(Entity entity) {
+		return entity.getStringValue("engineName");
+	}
+	
+	public String getEntityScript(Entity entity) {
+		return entity.getStringValue("script");
 	}
 
 	@Override

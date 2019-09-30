@@ -7,27 +7,29 @@ import java.util.Map;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
+import com.vordel.circuit.ext.filter.quick.AbstractQuickFilter;
+import com.vordel.circuit.ext.filter.quick.QuickScriptFilter;
 import com.vordel.common.CompositeResourceBundle;
 import com.vordel.common.ResourceBase;
-import com.vordel.es.Entity;
+import com.vordel.es.EntityType;
 
 public class QuickFilterResourceBase extends ResourceBase {
 	private Map<String, ResourceBundle> resourcesMap = new HashMap<String, ResourceBundle>();
-	private Entity definition;
+	private EntityType definition;
 
-	public QuickFilterResourceBase(Entity definition, Class<?> clazz, String resourcesFile) {
+	public QuickFilterResourceBase(EntityType definition, Class<?> clazz, String resourcesFile) {
 		super(clazz, resourcesFile);
 		
 		this.definition = definition;
 	}
 
-	public QuickFilterResourceBase(Entity definition, Class<?> clazz) {
+	public QuickFilterResourceBase(EntityType definition, Class<?> clazz) {
 		super(clazz);
 		
 		this.definition = definition;
 	}
 
-	public QuickFilterResourceBase(Entity definition, String packageName) {
+	public QuickFilterResourceBase(EntityType definition, String packageName) {
 		super(packageName);
 		
 		this.definition = definition;
@@ -35,7 +37,7 @@ public class QuickFilterResourceBase extends ResourceBase {
 	
 	
 	private PropertyResourceBundle getDefinitionProperties() {
-		String value = definition == null ? null : definition.getStringValue("resources");
+		String value = QuickScriptFilter.getConstantStringValue(definition, AbstractQuickFilter.QUICKFILTER_RESOURCES);
 		PropertyResourceBundle resources = null;
 		
 		if (value != null) {

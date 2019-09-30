@@ -1,6 +1,5 @@
 <entityStoreData>
-	<entityType extends="QuickFilter" name="JythonTrueFilter">
-		<constant name="class" type="string" value="com.vordel.client.ext.filter.quick.QuickFilter" />
+	<entityType extends="Filter" name="JythonTrueFilter">
 		<constant name="_version" type="integer" value="1" />
 	</entityType>
 </entityStoreData>
