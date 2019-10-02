@@ -248,7 +248,7 @@ public class QuickScriptFilterBuilder {
 		insertConstant(filter, AbstractQuickFilter.QUICKFILTER_GENERATED, QuickScriptFilter.splitValues(props.getProperty("QUICKFILTER_GENERATED", null), true));
 		insertConstant(filter, AbstractQuickFilter.QUICKFILTER_CONSUMED, QuickScriptFilter.splitValues(props.getProperty("QUICKFILTER_CONSUMED", null), true));
 		insertConstant(filter, AbstractQuickFilter.QUICKFILTER_REQUIRED, QuickScriptFilter.splitValues(props.getProperty("QUICKFILTER_REQUIRED", null), true));
-		insertConstant(filter, AbstractQuickFilter.QUICKFILTER_PALETTE, QuickScriptFilter.splitValues(props.getProperty("FILTER_CATEGORIES", "Utility"), true));
+		insertConstant(filter, AbstractQuickFilter.QUICKFILTER_PALETTE, QuickScriptFilter.splitValues(props.getProperty("FILTER_CATEGORY", "Utility"), true));
 		insertConstant(filter, AbstractQuickFilter.QUICKFILTER_ICON, props.getProperty("FILTER_ICON", "filter_small"));
 		insertConstant(filter, QuickScriptFilter.QUICKFILTER_ENGINENAME, engineName);
 		insertConstant(filter, AbstractQuickFilter.QUICKFILTER_DESCRIPTION, description);
